@@ -114,3 +114,17 @@ height: 100vh;
 .hidden {
     display: none;
 }
+
+.mini-palettes {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.mini-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    margin: 2px;
+}
+
