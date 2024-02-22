@@ -1,54 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>coloRandom</title>
-</head>
-<body>
-    <header>
+  </head>
+  <body>
+    <section class="main-container">
+      <header>
         <h1 class="header" id="header">COLORANDOM</h1>
-    </header>
-    <section class="box-section" id="box-section">
+      </header>
+      <section class="box-section" id="box-section">
         <div class="container">
-            <div class="box" id="box1">
-                <img class="lock" id="lock1" src="assets/unlocked.png">
-            </div>
-            <label for="box1" id="label1">#EA9999</label>
+          <div class="box" id="box1">
+            <img class="lock" id="lock1" src="assets/unlocked.png" />
+          </div>
+          <label for="box1" id="label1">#EA9999</label>
         </div>
         <div class="container">
-            <div class="box" id="box2">
-                <img class="lock" id="lock2" src="assets/unlocked.png">
-            </div>
-            <label for="box2" id="label2">#FACB9C</label>
+          <div class="box" id="box2">
+            <img class="lock" id="lock2" src="assets/unlocked.png" />
+          </div>
+          <label for="box2" id="label2">#FACB9C</label>
         </div>
         <div class="container">
-            <div class="box" id="box3">
-                <img class="lock" id="lock3" src="assets/unlocked.png">
-            </div>
-            <label for="box3" id="label3">#FFE59A</label>
+          <div class="box" id="box3">
+            <img class="lock" id="lock3" src="assets/unlocked.png" />
+          </div>
+          <label for="box3" id="label3">#FFE59A</label>
         </div>
         <div class="container">
-            <div class="box" id="box4">
-                <img class="lock" id="lock4" src="assets/unlocked.png">
-            </div>
-            <label for="box4" id="label4">#B6D7A8</label>
+          <div class="box" id="box4">
+            <img class="lock" id="lock4" src="assets/unlocked.png" />
+          </div>
+          <label for="box4" id="label4">#B6D7A8</label>
         </div>
         <div class="container">
-            <div class="box" id="box5">
-                <img class="lock" id="lock5" src="assets/unlocked.png">
-            </div>
-            <label for="box5" id="label5">#A4C4CA</label>
+          <div class="box" id="box5">
+            <img class="lock" id="lock5" src="assets/unlocked.png" />
+          </div>
+          <label for="box5" id="label5">#A4C4CA</label>
         </div>
+      </section>
+      <section class="button-section">
+        <button
+          type="submit"
+          class="new-palette-button"
+          id="new-palette-button"
+        >
+          New Palette
+        </button>
+        <button
+          type="submit"
+          class="save-palette-button"
+          id="save-palette-button"
+        >
+          Save Palette
+        </button>
+      </section>
     </section>
-    <section class="button-section">
-        <button type="submit" class="new-palette-button" id="new-palette-button">New Palette</button>
-        <button type="submit" class="save-palette-button" id="save-palette-button">Save Palette</button>
+    <section class="saved-section">
+      <h3 class="saved-header">Saved Palettes</h3>
     </section>
-</body>
-<script type="text/javascript" src="main.js"></script>
+  </body>
+  <script type="text/javascript" src="main.js"></script>
 </html>
