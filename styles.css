@@ -48,7 +48,7 @@ header {
     margin-top: 80px;
 }
 
-.new-palette-button {
+.new-palette-button ,.save-palette-button{
     height: 60px;
     width: 250px;
     background-color: black;
@@ -57,7 +57,11 @@ header {
     border: solid;
     border-top-right-radius: 90px;
     border-bottom-left-radius: 90px;
+    margin-right: 45px;
+    margin-left: 45px;
+    margin-top: 25px;
 }
+
 
 #box1 {
     background-color: #EA9999;
