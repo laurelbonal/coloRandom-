@@ -97,7 +97,10 @@ header {
 
 .saved-section {
 display: flex;
-justify-content: center;
+flex-direction: column;
+justify-content: start;
+align-items: center;
+flex-wrap: wrap;
 width:35%;
 border-left: 5px solid black;
 height: 100vh;
@@ -106,4 +109,8 @@ height: 100vh;
 .saved-header{
     font-family: "Poppins", sans-serif;
     font-size: 35px;
+}
+
+.hidden {
+    display: none;
 }

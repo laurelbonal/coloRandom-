@@ -1,9 +1,12 @@
-var newPalette = document.querySelector(".new-palette-button");
+var newPaletteButton = document.querySelector(".new-palette-button");
+var saveButton = document.querySelector(".save-palette-button")
 var lock1 = document.querySelector('#lock1');
 var lock2 = document.querySelector('#lock2');
 var lock3 = document.querySelector('#lock3');
 var lock4 = document.querySelector('#lock4');
 var lock5 = document.querySelector('#lock5');
+
+var savedStatus = document.querySelector(".saved-palettes-status")
 
 var boxes = [
     {box: document.querySelector('#box1'), label: document.querySelector('#label1'), locked: false},
@@ -15,12 +18,12 @@ var boxes = [
 
 var currentPalette = [];
 var lockedColors = [];
+var savedPalettes = [];
 
 addEventListener("load", showRandomColors);
 
-newPalette.addEventListener("click", function(){
-    showRandomColors();
-})
+newPaletteButton.addEventListener("click", showRandomColors);
+saveButton.addEventListener("click", saveCurrentPalette);
 
 function showRandomColors() {
     currentPalette = [];
@@ -38,6 +41,13 @@ function showRandomColors() {
     });
 };
 
+function saveCurrentPalette() {
+    savedStatus.classList.add("hidden")
+    if (!savedPalettes.includes(currentPalette)){
+        savedPalettes.push(currentPalette);
+        return savedPalettes
+    }
+};
 
 lock1.addEventListener('click', function() {
   console.log('here');
