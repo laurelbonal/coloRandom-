@@ -1,16 +1,16 @@
 var newPalette = document.querySelector(".new-palette-button");
 var lock1 = document.querySelector('#lock1');
 var lock2 = document.querySelector('#lock2');
-// var lock3 = document.querySelector('#lock3');
-// var lock4 = document.querySelector('#lock4');
-// var lock5 = document.querySelector('#lock5');
+var lock3 = document.querySelector('#lock3');
+var lock4 = document.querySelector('#lock4');
+var lock5 = document.querySelector('#lock5');
 
 var boxes = [
-    {box: document.querySelector('#box1'), label: document.querySelector('#label1'), locked: false, lockIcon: document.querySelector('#lock1')},
-    {box: document.querySelector('#box2'), label: document.querySelector('#label2'), locked: false, lockIcon: document.querySelector('#lock2')},
-    {box: document.querySelector('#box3'), label: document.querySelector('#label3'), locked: false, lockIcon: document.querySelector('#lock3')},
-    {box: document.querySelector('#box4'), label: document.querySelector('#label4'), locked: false, lockIcon: document.querySelector('#lock4')},
-    {box: document.querySelector('#box5'), label: document.querySelector('#label5'), locked: false, lockIcon: document.querySelector('#lock5')}
+    {box: document.querySelector('#box1'), label: document.querySelector('#label1')},
+    {box: document.querySelector('#box2'), label: document.querySelector('#label2')},
+    {box: document.querySelector('#box3'), label: document.querySelector('#label3')},
+    {box: document.querySelector('#box4'), label: document.querySelector('#label4')},
+    {box: document.querySelector('#box5'), label: document.querySelector('#label5')}
 ];
 
 var currentPalette = [];
@@ -33,45 +33,32 @@ function showRandomColors() {
     });
 };
 
-// function handleLock() { 
-//     boxes.forEach(function(item) {
-//         item.lockIcon.addEventListener("click", function() {
-//             toggleLock(item);
-//         });
-//     });
-// }
-    
-
-// function toggleLock(item) {
-//   item.locked = !item.locked
-//   if (item.locked){
-//     item.lockIcon.src = "assets/locked.png"
-//   }
-// }
 
 lock1.addEventListener('click', function() {
   console.log('here');
   handleLock(lock1);
-})
+});
 
 lock2.addEventListener('click', function() {
   console.log('here');
   handleLock(lock2);
-})
+});
 
-// var isLocked = false;
+lock3.addEventListener('click', function() {
+    console.log('here');
+    handleLock(lock3);
+});
 
-// function handleLock(lock) {
-//   if (!isLocked) {
-//     lock.src="assets/locked.png";
-//     console.log('isLocked', isLocked)
-//     isLocked = true
-//     console.log(isLocked, 'true???')
-//   } else if (isLocked) {
-//     lock.src="assets/unlocked.png";
-//     isLocked = false
-//   }  
-// }
+lock4.addEventListener('click', function() {
+    console.log('here');
+    handleLock(lock4);
+});
+
+lock5.addEventListener('click', function() {
+    console.log('here');
+    handleLock(lock5);
+});
+
 
 function handleLock(lock) {
   var isLocked = lock.src.includes("unlocked");
@@ -80,5 +67,5 @@ function handleLock(lock) {
   } else {
       lock.src = "assets/unlocked.png";
   }
-}
+};
 
