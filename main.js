@@ -75,3 +75,5 @@ function handleLockIcon(lock, index) {
       lock.src = "assets/unlocked.png";
   }
 };
+
+
