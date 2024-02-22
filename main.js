@@ -8,6 +8,8 @@ var lock5 = document.querySelector('#lock5');
 
 var savedStatus = document.querySelector(".saved-palettes-status")
 
+var miniPalettes = document.querySelector('#mini-palettes');
+
 var boxes = [
     {box: document.querySelector('#box1'), label: document.querySelector('#label1'), locked: false},
     {box: document.querySelector('#box2'), label: document.querySelector('#label2'), locked: false},
@@ -23,7 +25,10 @@ var savedPalettes = [];
 addEventListener("load", showRandomColors);
 
 newPaletteButton.addEventListener("click", showRandomColors);
-saveButton.addEventListener("click", saveCurrentPalette);
+saveButton.addEventListener("click", function() {
+    saveCurrentPalette();
+    showSavedPalettes(savedPalettes);
+})
 
 function showRandomColors() {
     currentPalette = [];
@@ -50,27 +55,22 @@ function saveCurrentPalette() {
 };
 
 lock1.addEventListener('click', function() {
-  console.log('here');
   handleLockIcon(lock1, 0);
 });
 
 lock2.addEventListener('click', function() {
-  console.log('here');
   handleLockIcon(lock2, 1);
 });
 
 lock3.addEventListener('click', function() {
-    console.log('here');
     handleLockIcon(lock3, 2);
 });
 
 lock4.addEventListener('click', function() {
-    console.log('here');
     handleLockIcon(lock4, 3);
 });
 
 lock5.addEventListener('click', function() {
-    console.log('here');
     handleLockIcon(lock5, 4);
 });
 
@@ -86,4 +86,20 @@ function handleLockIcon(lock, index) {
   }
 };
 
+function showSavedPalettes(savedPalettes) {
+    for (var i = 0; i < savedPalettes.length; i++) {
+        var singlePalette = savedPalettes[i];
+        for (var y = 0; y < singlePalette.length; y++) {
+                miniPalettes.innerHTML += `<div class="mini-box"style="background-color:${singlePalette[y]}"></div>`
+    } 
+}
+}
 
+
+
+// We need to add mini boxes to the innerHTML of the mini-palettes section
+// we need to create a function that inserts the colors from each array in saved arrays
+// into the elements we create in innerHTML
+// we need to loop through the savedPalettes array to gather the hex codes to be used in 
+// each box
+// can you access an element created inside a function with innerHTML outside the function?
