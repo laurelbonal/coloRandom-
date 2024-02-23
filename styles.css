@@ -132,10 +132,10 @@ display:flex
 }
 
 .mini-palette {
-width: 70px;
-height: 70px;
+width: 50px;
+height: 50px;
 border: 3px solid black;
-margin: 8px;
+margin: 3px;
 display: flex;
 align-items: flex-end;
 justify-content: flex-end;
@@ -143,6 +143,14 @@ justify-content: flex-end;
 
 .saved-palettes {
     display: flex;
+    align-items: center;
+}
+
+.delete-button {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 

@@ -1,17 +1,19 @@
+//<><>QuerySelectors<><>
 var newPaletteButton = document.querySelector(".new-palette-button");
 var saveButton = document.querySelector(".save-palette-button");
+
 var lock1 = document.querySelector("#lock1");
 var lock2 = document.querySelector("#lock2");
 var lock3 = document.querySelector("#lock3");
 var lock4 = document.querySelector("#lock4");
 var lock5 = document.querySelector("#lock5");
+
 var savedSection = document.querySelector(".saved-section");
 var savedPalettes = document.querySelector(".mini-palette");
-
 var savedStatus = document.querySelector(".saved-palettes-status");
-
 var miniPalettes = document.querySelector("#mini-palettes");
 
+//<><>Data Model<><>
 var boxes = [
   {
     box: document.querySelector("#box1"),
@@ -44,7 +46,28 @@ var currentPalette = [];
 var lockedColors = [];
 var savedPalettes = [];
 
+//<><>Event Listeners<><>
 addEventListener("load", showRandomColors);
+
+lock1.addEventListener("click", function () {
+  handleLockIcon(lock1, 0);
+});
+
+lock2.addEventListener("click", function () {
+  handleLockIcon(lock2, 1);
+});
+
+lock3.addEventListener("click", function () {
+  handleLockIcon(lock3, 2);
+});
+
+lock4.addEventListener("click", function () {
+  handleLockIcon(lock4, 3);
+});
+
+lock5.addEventListener("click", function () {
+  handleLockIcon(lock5, 4);
+});
 
 newPaletteButton.addEventListener("click", showRandomColors);
 saveButton.addEventListener("click", function () {
@@ -52,6 +75,7 @@ saveButton.addEventListener("click", function () {
   showSavedPalettes(savedPalettes);
 });
 
+//<><>Functions<><>
 function showRandomColors() {
   currentPalette = [];
   boxes.forEach(function (item, index) {
@@ -73,26 +97,6 @@ function saveCurrentPalette() {
     savedPalettes.push(currentPalette);
   }
 }
-
-lock1.addEventListener("click", function () {
-  handleLockIcon(lock1, 0);
-});
-
-lock2.addEventListener("click", function () {
-  handleLockIcon(lock2, 1);
-});
-
-lock3.addEventListener("click", function () {
-  handleLockIcon(lock3, 2);
-});
-
-lock4.addEventListener("click", function () {
-  handleLockIcon(lock4, 3);
-});
-
-lock5.addEventListener("click", function () {
-  handleLockIcon(lock5, 4);
-});
 
 function handleLockIcon(lock, index) {
   var isLocked = lock.src.includes("unlocked");
@@ -117,4 +121,16 @@ function showSavedPalettes(savedPalettes) {
     savedSection.appendChild(section);
     showRandomColors();
   }
+  var deleteButton = document.createElement("img");
+  deleteButton.src ='assets/delete.png'
+  deleteButton.className = "delete-button";
+  section.appendChild(deleteButton);
 }
+
+savedSection.addEventListener('click', function(event) {
+  var parent = document.querySelector('.saved-palettes');
+  if (event.target.classList.contains('delete-button')) {
+    savedPalettes.splice(event, 1);
+    parent.remove();
+  }
+})
