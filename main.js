@@ -5,6 +5,7 @@ var lock2 = document.querySelector('#lock2');
 var lock3 = document.querySelector('#lock3');
 var lock4 = document.querySelector('#lock4');
 var lock5 = document.querySelector('#lock5');
+var savedSection = document.querySelector(".saved-section");
 
 var savedStatus = document.querySelector(".saved-palettes-status")
 
@@ -50,7 +51,7 @@ function saveCurrentPalette() {
     savedStatus.classList.add("hidden")
     if (!savedPalettes.includes(currentPalette)){
         savedPalettes.push(currentPalette);
-        return savedPalettes
+        // return savedPalettes
     }
 };
 
@@ -86,20 +87,24 @@ function handleLockIcon(lock, index) {
   }
 };
 
+
+
+
 function showSavedPalettes(savedPalettes) {
+    var section = document.createElement("section");
+    section.className = "saved-palettes";
     for (var i = 0; i < savedPalettes.length; i++) {
         var singlePalette = savedPalettes[i];
         for (var y = 0; y < singlePalette.length; y++) {
-                miniPalettes.innerHTML += `<div class="mini-box"style="background-color:${singlePalette[y]}"></div>`
-    } 
-}
-}
+        var div = document.createElement("div");
+            div.className = "mini-palette";
+            div.style.backgroundColor = singlePalette[y]
+            section.appendChild(div);
+          }
+      
 
+        savedSection.appendChild(section);
+        };
+    }
 
-
-// We need to add mini boxes to the innerHTML of the mini-palettes section
-// we need to create a function that inserts the colors from each array in saved arrays
-// into the elements we create in innerHTML
-// we need to loop through the savedPalettes array to gather the hex codes to be used in 
-// each box
-// can you access an element created inside a function with innerHTML outside the function?
+    
