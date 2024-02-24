@@ -13,34 +13,36 @@ var savedPalettes = document.querySelector(".mini-palette");
 var savedStatus = document.querySelector(".saved-palettes-status");
 var miniPalettes = document.querySelector("#mini-palettes");
 
-//<><>Data Model<><>
 var boxes = [
-  {
-    box: document.querySelector("#box1"),
-    label: document.querySelector("#label1"),
-    locked: false,
-  },
-  {
-    box: document.querySelector("#box2"),
-    label: document.querySelector("#label2"),
-    locked: false,
-  },
-  {
-    box: document.querySelector("#box3"),
-    label: document.querySelector("#label3"),
-    locked: false,
-  },
-  {
-    box: document.querySelector("#box4"),
-    label: document.querySelector("#label4"),
-    locked: false,
-  },
-  {
-    box: document.querySelector("#box5"),
-    label: document.querySelector("#label5"),
-    locked: false,
-  },
-];
+    {
+      box: document.querySelector("#box1"),
+      label: document.querySelector("#label1"),
+      locked: false,
+    },
+    {
+      box: document.querySelector("#box2"),
+      label: document.querySelector("#label2"),
+      locked: false,
+    },
+    {
+      box: document.querySelector("#box3"),
+      label: document.querySelector("#label3"),
+      locked: false,
+    },
+    {
+      box: document.querySelector("#box4"),
+      label: document.querySelector("#label4"),
+      locked: false,
+    },
+    {
+      box: document.querySelector("#box5"),
+      label: document.querySelector("#label5"),
+      locked: false,
+    },
+  ];
+  
+//<><>Data Model<><>
+var hexCharacters = ["A", "B", "C", "D", "E", "F", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 var currentPalette = [];
 var lockedColors = [];
@@ -76,12 +78,21 @@ saveButton.addEventListener("click", function () {
 });
 
 //<><>Functions<><>
+function randomHexCode(){
+    var hexCode = "#";
+    for (var i = 0; i < 6; i++) {
+        var randomIndex = Math.floor(Math.random() * hexCharacters.length);
+        hexCode += hexCharacters[randomIndex];
+    }
+    return hexCode;
+}
+
 function showRandomColors() {
   currentPalette = [];
   boxes.forEach(function (item, index) {
     var randomColor = null;
     if (!lockedColors[index]) {
-      var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      var randomColor = randomHexCode()
     } else {
       randomColor = lockedColors[index];
     }
@@ -113,6 +124,7 @@ function showSavedPalettes(savedPalettes) {
   var section = document.createElement("section");
   section.className = "saved-palettes";
   var lastIndex = savedPalettes[savedPalettes.length - 1];
+  section.id = savedPalettes.length - 1
   for (var i = 0; i < lastIndex.length; i++) {
     var div = document.createElement("div");
     div.className = "mini-palette";
@@ -128,9 +140,9 @@ function showSavedPalettes(savedPalettes) {
 }
 
 savedSection.addEventListener('click', function(event) {
-  var parent = document.querySelector('.saved-palettes');
-  if (event.target.classList.contains('delete-button')) {
-    savedPalettes.splice(event, 1);
-    parent.remove();
-  }
-})
+    var index = event.target.parentElement.id
+    savedPalettes.splice(index, 1);
+    var parentSection = event.target.closest('.saved-palettes'); 
+    parentSection.remove();
+  });
+
