@@ -42,6 +42,8 @@ var boxes = [
   },
 ];
 
+var hexCharacters = ["A", "B", "C", "D", "E", "F", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 var currentPalette = [];
 var lockedColors = [];
 var savedPalettes = [];
@@ -76,12 +78,21 @@ saveButton.addEventListener("click", function () {
 });
 
 //<><>Functions<><>
+function randomHexCode(){
+    var hexCode = "#";
+    for (var i = 0; i < 6; i++) {
+        var randomIndex = Math.floor(Math.random() * hexCharacters.length);
+        hexCode += hexCharacters[randomIndex];
+    }
+    return hexCode;
+}
+
 function showRandomColors() {
   currentPalette = [];
   boxes.forEach(function (item, index) {
     var randomColor = null;
     if (!lockedColors[index]) {
-      var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      var randomColor = randomHexCode()
     } else {
       randomColor = lockedColors[index];
     }
@@ -113,6 +124,7 @@ function showSavedPalettes(savedPalettes) {
   var section = document.createElement("section");
   section.className = "saved-palettes";
   var lastIndex = savedPalettes[savedPalettes.length - 1];
+  console.log(lastIndex)
   for (var i = 0; i < lastIndex.length; i++) {
     var div = document.createElement("div");
     div.className = "mini-palette";
@@ -127,10 +139,4 @@ function showSavedPalettes(savedPalettes) {
   section.appendChild(deleteButton);
 }
 
-savedSection.addEventListener('click', function(event) {
-  var parent = document.querySelector('.saved-palettes');
-  if (event.target.classList.contains('delete-button')) {
-    savedPalettes.splice(event, 1);
-    parent.remove();
-  }
-})
+
