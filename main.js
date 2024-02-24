@@ -13,35 +13,35 @@ var savedPalettes = document.querySelector(".mini-palette");
 var savedStatus = document.querySelector(".saved-palettes-status");
 var miniPalettes = document.querySelector("#mini-palettes");
 
-//<><>Data Model<><>
 var boxes = [
-  {
-    box: document.querySelector("#box1"),
-    label: document.querySelector("#label1"),
-    locked: false,
-  },
-  {
-    box: document.querySelector("#box2"),
-    label: document.querySelector("#label2"),
-    locked: false,
-  },
-  {
-    box: document.querySelector("#box3"),
-    label: document.querySelector("#label3"),
-    locked: false,
-  },
-  {
-    box: document.querySelector("#box4"),
-    label: document.querySelector("#label4"),
-    locked: false,
-  },
-  {
-    box: document.querySelector("#box5"),
-    label: document.querySelector("#label5"),
-    locked: false,
-  },
-];
-
+    {
+      box: document.querySelector("#box1"),
+      label: document.querySelector("#label1"),
+      locked: false,
+    },
+    {
+      box: document.querySelector("#box2"),
+      label: document.querySelector("#label2"),
+      locked: false,
+    },
+    {
+      box: document.querySelector("#box3"),
+      label: document.querySelector("#label3"),
+      locked: false,
+    },
+    {
+      box: document.querySelector("#box4"),
+      label: document.querySelector("#label4"),
+      locked: false,
+    },
+    {
+      box: document.querySelector("#box5"),
+      label: document.querySelector("#label5"),
+      locked: false,
+    },
+  ];
+  
+//<><>Data Model<><>
 var hexCharacters = ["A", "B", "C", "D", "E", "F", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 var currentPalette = [];
@@ -124,7 +124,7 @@ function showSavedPalettes(savedPalettes) {
   var section = document.createElement("section");
   section.className = "saved-palettes";
   var lastIndex = savedPalettes[savedPalettes.length - 1];
-  console.log(lastIndex)
+  section.id = savedPalettes.length - 1
   for (var i = 0; i < lastIndex.length; i++) {
     var div = document.createElement("div");
     div.className = "mini-palette";
@@ -139,4 +139,10 @@ function showSavedPalettes(savedPalettes) {
   section.appendChild(deleteButton);
 }
 
+savedSection.addEventListener('click', function(event) {
+    var index = event.target.parentElement.id
+    savedPalettes.splice(index, 1);
+    var parentSection = event.target.closest('.saved-palettes'); 
+    parentSection.remove();
+  });
 
