@@ -40,7 +40,7 @@ var boxes = [
       locked: false,
     },
   ];
-  
+
 //<><>Data Model<><>
 var hexCharacters = ["A", "B", "C", "D", "E", "F", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -124,7 +124,7 @@ function showSavedPalettes(savedPalettes) {
   var section = document.createElement("section");
   section.className = "saved-palettes";
   var lastIndex = savedPalettes[savedPalettes.length - 1];
-  section.id = savedPalettes.length - 1
+  section.id = Date.now()
   for (var i = 0; i < lastIndex.length; i++) {
     var div = document.createElement("div");
     div.className = "mini-palette";
