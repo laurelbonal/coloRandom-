@@ -1,156 +1,153 @@
 body {
-    font-family: "Poppins", sans-serif;
-    display: flex;
-    flex-direction: row;
-    background-color: #e7f1f1;
-
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: row;
+  background-color: #e7f1f1;
 }
 
-.main-container{
-    display: flex;
-    flex-direction: column;
-    width:75%
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
 }
 
 header {
-    text-align: center;
+  text-align: center;
 }
 
 .header {
-    margin-top: 90px;
-    margin-bottom: 100px;
-    font-weight: 700;
-    font-style: bold;
-    font-size: 80px;
+  margin-top: 90px;
+  margin-bottom: 100px;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 80px;
 }
 
 .box-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .box {
-    width: 125px;
-    height: 125px;
-    border: 3px solid black;
-    margin: 8px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-
+  width: 125px;
+  height: 125px;
+  border: 3px solid black;
+  margin: 8px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .button-section {
-    display: flex;
-    justify-content: center;
-    margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
 }
 
-.new-palette-button ,.save-palette-button{
-    height: 60px;
-    width: 250px;
-    background-color: black;
-    color: white;
-    font-size: 25px;
-    border: solid;
-    border-top-right-radius: 90px;
-    border-bottom-left-radius: 90px;
-    margin-right: 45px;
-    margin-left: 45px;
-    margin-top: 25px;
+.new-palette-button,
+.save-palette-button {
+  height: 60px;
+  width: 250px;
+  background-color: black;
+  color: white;
+  font-size: 25px;
+  border: solid;
+  border-top-right-radius: 90px;
+  border-bottom-left-radius: 90px;
+  margin-right: 45px;
+  margin-left: 45px;
+  margin-top: 25px;
 }
-
 
 #box1 {
-    background-color: #EA9999;
+  background-color: #ea9999;
 }
 
 #box2 {
-    background-color: #FACB9C;
+  background-color: #facb9c;
 }
 
 #box3 {
-    background-color: #FFE59A;
+  background-color: #ffe59a;
 }
 
 #box4 {
-    background-color: #B6D7A8;
+  background-color: #b6d7a8;
 }
 
 #box5 {
-    background-color: #A4C4CA;
+  background-color: #a4c4ca;
 }
 
 .lock {
-    width: 30px;
-    height: 30px;
-    margin: 5px;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
 }
 
 .saved-section {
-display: flex;
-flex-direction: column;
-justify-content: start;
-align-items: center;
-flex-wrap: wrap;
-width:35%;
-border-left: 5px solid black;
-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 35%;
+  border-left: 5px solid black;
+  height: 100vh;
 }
 
-.saved-header{
-    font-family: "Poppins", sans-serif;
-    font-size: 35px;
+.saved-header {
+  font-family: "Poppins", sans-serif;
+  font-size: 35px;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .mini-palettes {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.saved-mini-palettes{
-display:flex
+
+.saved-mini-palettes {
+  display: flex;
 }
 
 .mini-box {
-    width: 20px;
-    height: 20px;
-    border: 2px solid black;
-    margin: 2px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  margin: 2px;
 }
 
 .mini-palette {
-width: 50px;
-height: 50px;
-border: 3px solid black;
-margin: 3px;
-display: flex;
-align-items: flex-end;
-justify-content: flex-end;
+  width: 50px;
+  height: 50px;
+  border: 3px solid black;
+  margin: 3px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .saved-palettes {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .delete-button {
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
-    cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  cursor: pointer;
 }
-
-

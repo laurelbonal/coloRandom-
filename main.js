@@ -10,40 +10,58 @@ var lock5 = document.querySelector("#lock5");
 
 var savedSection = document.querySelector(".saved-section");
 var savedPalettes = document.querySelector(".mini-palette");
-var savedStatus = document.querySelector(".saved-palettes-status");
 var miniPalettes = document.querySelector("#mini-palettes");
+var savedStatus = document.querySelector(".saved-palettes-status");
+
+//<><>Variables<><>
+var hexCharacters = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+];
 
 var boxes = [
-    {
-      box: document.querySelector("#box1"),
-      label: document.querySelector("#label1"),
-      locked: false,
-    },
-    {
-      box: document.querySelector("#box2"),
-      label: document.querySelector("#label2"),
-      locked: false,
-    },
-    {
-      box: document.querySelector("#box3"),
-      label: document.querySelector("#label3"),
-      locked: false,
-    },
-    {
-      box: document.querySelector("#box4"),
-      label: document.querySelector("#label4"),
-      locked: false,
-    },
-    {
-      box: document.querySelector("#box5"),
-      label: document.querySelector("#label5"),
-      locked: false,
-    },
-  ];
+  {
+    box: document.querySelector("#box1"),
+    label: document.querySelector("#label1"),
+    locked: false,
+  },
+  {
+    box: document.querySelector("#box2"),
+    label: document.querySelector("#label2"),
+    locked: false,
+  },
+  {
+    box: document.querySelector("#box3"),
+    label: document.querySelector("#label3"),
+    locked: false,
+  },
+  {
+    box: document.querySelector("#box4"),
+    label: document.querySelector("#label4"),
+    locked: false,
+  },
+  {
+    box: document.querySelector("#box5"),
+    label: document.querySelector("#label5"),
+    locked: false,
+  },
+];
 
 //<><>Data Model<><>
-var hexCharacters = ["A", "B", "C", "D", "E", "F", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 var currentPalette = [];
 var lockedColors = [];
 var savedPalettes = [];
@@ -77,14 +95,21 @@ saveButton.addEventListener("click", function () {
   showSavedPalettes(savedPalettes);
 });
 
+savedSection.addEventListener("click", function (event) {
+  var index = event.target.parentElement.id;
+  savedPalettes.splice(index, 1);
+  var parentSection = event.target.closest(".saved-palettes");
+  parentSection.remove();
+});
+
 //<><>Functions<><>
-function randomHexCode(){
-    var hexCode = "#";
-    for (var i = 0; i < 6; i++) {
-        var randomIndex = Math.floor(Math.random() * hexCharacters.length);
-        hexCode += hexCharacters[randomIndex];
-    }
-    return hexCode;
+function randomHexCode() {
+  var hexCode = "#";
+  for (var i = 0; i < 6; i++) {
+    var randomIndex = Math.floor(Math.random() * hexCharacters.length);
+    hexCode += hexCharacters[randomIndex];
+  }
+  return hexCode;
 }
 
 function showRandomColors() {
@@ -92,7 +117,7 @@ function showRandomColors() {
   boxes.forEach(function (item, index) {
     var randomColor = null;
     if (!lockedColors[index]) {
-      var randomColor = randomHexCode()
+      var randomColor = randomHexCode();
     } else {
       randomColor = lockedColors[index];
     }
@@ -124,7 +149,7 @@ function showSavedPalettes(savedPalettes) {
   var section = document.createElement("section");
   section.className = "saved-palettes";
   var lastIndex = savedPalettes[savedPalettes.length - 1];
-  section.id = Date.now()
+  section.id = Date.now();
   for (var i = 0; i < lastIndex.length; i++) {
     var div = document.createElement("div");
     div.className = "mini-palette";
@@ -134,15 +159,7 @@ function showSavedPalettes(savedPalettes) {
     showRandomColors();
   }
   var deleteButton = document.createElement("img");
-  deleteButton.src ='assets/delete.png'
+  deleteButton.src = "assets/delete.png";
   deleteButton.className = "delete-button";
   section.appendChild(deleteButton);
 }
-
-savedSection.addEventListener('click', function(event) {
-    var index = event.target.parentElement.id
-    savedPalettes.splice(index, 1);
-    var parentSection = event.target.closest('.saved-palettes'); 
-    parentSection.remove();
-  });
-
